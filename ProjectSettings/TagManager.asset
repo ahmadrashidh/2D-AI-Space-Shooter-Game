@@ -15,8 +15,8 @@ TagManager:
   - Agent
   - Hittable
   - ObstacleMovement
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -46,4 +46,10 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 3384217729
+    locked: 0
+  - name: SpecialEffects
+    uniqueID: 590370913
+    locked: 0
+  - name: UI
+    uniqueID: 1539568261
     locked: 0
