@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e20d0d4f2c9a4375b1baead4dcfd6fc, type: 3}
   m_Name: SpaceshipMovementData
   m_EditorClassIdentifier: 
-  maxSpeed: 50
+  maxSpeed: 100
   rotationSpeed: 100
-  acceleration: 70
+  acceleration: 80
   decceleration: 50
