@@ -15,7 +15,7 @@ public class AIShootBehaviour : AIBehaviour
             spaceship.HandleShoot();
         }
 
-        spaceship.HandleMoveBody(detector.Target.position);
+        //spaceship.HandleMoveBody(detector.Target.position);
     }
 
     private bool TargetInFOV(SpaceshipController spaceship, AIDetector detector)

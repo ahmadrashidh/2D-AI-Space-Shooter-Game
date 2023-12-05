@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2800649650083044389}
   - component: {fileID: 3267080202588001654}
   - component: {fileID: 2786687228842707201}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: StaticEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb0562dd7bbf4b3e89209b95ad1ba4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfVisionForShooting: 60
+  fieldOfVisionForShooting: 100
 --- !u!114 &2786687228842707201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.111
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -490,15 +490,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f92e4033bac0473f9ec363d08979265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 2.3
-  detectionCheckDelay: 0.1
+  viewRadius: 2.61
+  detectionCheckDelay: 0.2
   target: {fileID: 0}
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 1024
   visibilityLayer:
     serializedVersion: 2
-    m_Bits: 3328
+    m_Bits: 3840
   <TargetVisible>k__BackingField: 0
 --- !u!1001 &3715285534220424439
 PrefabInstance:
@@ -508,6 +508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3083896936777476953}
     m_Modifications:
+    - target: {fileID: 2454621247575784694, guid: 6edc46f480690464dbbf5845b16a1beb, type: 3}
+      propertyPath: objToPool
+      value: 
+      objectReference: {fileID: 1960846800749611083, guid: db27fad92055b42078efd236e71af57b, type: 3}
     - target: {fileID: 3423115821427653422, guid: 6edc46f480690464dbbf5845b16a1beb, type: 3}
       propertyPath: OnHealthChange.m_PersistentCalls.m_Calls.Array.size
       value: 1

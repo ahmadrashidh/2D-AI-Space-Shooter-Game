@@ -19,7 +19,9 @@ public class AIPatrolStaticBehaviour : AIBehaviour
 
     public override void PerformAction(SpaceshipController spaceship, AIDetector detector)
     {
+
         float angle = Vector2.Angle(spaceship.transform.up, randomDirection);
+
         if(currentPatrolDelay <= 0 && (angle < 2))
         {
             randomDirection = Random.insideUnitCircle;
