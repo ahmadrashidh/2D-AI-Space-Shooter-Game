@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e20d0d4f2c9a4375b1baead4dcfd6fc, type: 3}
-  m_Name: SpaceshipMovementData
+  m_Script: {fileID: 11500000, guid: 7c361866c3a054d39b2a6281208d6a32, type: 3}
+  m_Name: TimeCondition
   m_EditorClassIdentifier: 
-  maxSpeed: 200
-  rotationSpeed: 100
-  acceleration: 120
-  decceleration: 50
+  timeToWait: 2
+  timePassed: 0

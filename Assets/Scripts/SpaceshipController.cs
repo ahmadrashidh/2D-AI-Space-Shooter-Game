@@ -43,9 +43,9 @@ public class SpaceshipController : MonoBehaviour
     }
 
 
-    public void HandleMoveBody(Vector2 movementVector)
+    public void HandleMoveBody(Vector2 moveVector)
     {
-        this.movementVector = movementVector;
+        this.movementVector = moveVector;
         CalculateSpeed(movementVector);
 
         if(movementVector.y > 0)
@@ -114,6 +114,12 @@ public class SpaceshipController : MonoBehaviour
     {
         rb2d.velocity = (Vector2)transform.up * currentSpeed * currentForewardDirection * Time.fixedDeltaTime;
         rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementVector.x * movementData.rotationSpeed * Time.fixedDeltaTime));
+    }
+
+    public void rotate(Vector2 moveVector)
+    {
+
+        rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -moveVector.x * movementData.rotationSpeed * Time.fixedDeltaTime));
     }
 }
 
