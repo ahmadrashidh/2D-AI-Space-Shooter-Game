@@ -39,11 +39,8 @@ public class WanderState : State
     private Vector2 RotateAgent()
     {
         float wanderOrientation = Random.Range(-70f, 70f) * angleModifier;
-        Debug.Log("WanderOrientation:" + wanderOrientation);
         var newRotation = Quaternion.AngleAxis(wanderOrientation, Vector2.up);
-        Debug.Log("NewRotation:" + newRotation);
         var rotationDirection = newRotation * Vector2.left;
-        Debug.Log("rotationDirection:" + (rotationDirection));
         controller.HandleMoveBody(rotationDirection);
         return rotationDirection;
     }
@@ -51,7 +48,6 @@ public class WanderState : State
     IEnumerator LookAround()
     {
         direction = null;
-        Debug.Log("LookingAround");
         controller.HandleMoveBody(Vector2.down);
         var rotationDirection = RotateAgent();
         direction = rotationDirection;
