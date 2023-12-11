@@ -21,6 +21,7 @@ public class WanderState : State
             {
                 controller.currentSpeed = 20;
                 controller.currentForewardDirection = 1;
+                Debug.Log("WanderingUp");
                 controller.HandleMoveBody(direction.Value.normalized * Vector2.up);
             }
             return;
