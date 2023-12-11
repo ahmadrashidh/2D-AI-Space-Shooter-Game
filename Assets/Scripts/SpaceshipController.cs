@@ -105,8 +105,6 @@ public class SpaceshipController : MonoBehaviour
                 bullet.transform.position = shooter.position;
                 bullet.transform.localRotation = shooter.rotation;
                 bullet.GetComponent<Bullet>().Initialize();
-                Debug.Log("ShootAudio" + shootAudio);
-                shootAudio.Play();
                 foreach(var collider in pColliders)
                 {
                     Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), collider);
