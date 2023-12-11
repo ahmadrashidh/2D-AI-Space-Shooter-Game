@@ -8,10 +8,10 @@ public class detection_collision : MonoBehaviour
     public float amplitude = 3.0f; // Amplitude of the sine wave
     public float frequency = 1.0f; // Frequency of the sine wave
     public float patrolRange = 10.0f; // Range for patrolling (left to right)
-    public float minY = -4.0f; // Minimum Y position
-    public float maxY = 4.0f; // Maximum Y position
-    public float leftBoundary = -8.0f; // Left boundary of movement
-    public float rightBoundary = 9.0f; // Right boundary of movement
+    public float minY = -2.0f; // Minimum Y position
+    public float maxY = 6.0f; // Maximum Y position
+    public float leftBoundary = 2.0f; // Left boundary of movement
+    public float rightBoundary = 12.0f; // Right boundary of movement
 
     public float detectionRadius = 4f;
     public LayerMask playerLayer; // Assign the layer where the player is placed
@@ -53,7 +53,7 @@ public class detection_collision : MonoBehaviour
         float patrolX = CalculatePatrolX();
         float newYPos = Mathf.Lerp(minY, maxY, Mathf.InverseLerp(-1, 1, Mathf.Sin(timer * frequency)));
         float newXPos = Mathf.Clamp(patrolX, leftBoundary, rightBoundary);
-
+        enemyRenderer.color = defaultColor;
         transform.position = new Vector2(newXPos, newYPos);
         timer += Time.deltaTime * speed;
 
@@ -100,6 +100,12 @@ public class detection_collision : MonoBehaviour
     {
         if (playerTransform != null)
         {
+            if (transform.position.x < leftBoundary || transform.position.x > rightBoundary || transform.position.y < minY || transform.position.y > maxY)
+            {
+                isChasing = false; // Stop chasing if beyond boundaries
+                return;
+            }
+        
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
             // Change the 'movementSpeed' value as needed for the speed of movement
         }

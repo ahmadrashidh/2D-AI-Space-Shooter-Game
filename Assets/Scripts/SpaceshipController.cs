@@ -29,13 +29,13 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField]
     private int bulletPoolCount = 10;
 
-    private AudioSource shootAudio;
+    public AudioSource shootAudio;
 
     private void Awake()
     {
         pColliders = GetComponentsInParent<Collider2D>();
         bulletPool = GetComponent<ObjectPool>();
-        shootAudio = GetComponent<AudioSource>();
+        
     }
 
     // Start is called before the first frame update
@@ -105,6 +105,7 @@ public class SpaceshipController : MonoBehaviour
                 bullet.transform.position = shooter.position;
                 bullet.transform.localRotation = shooter.rotation;
                 bullet.GetComponent<Bullet>().Initialize();
+                shootAudio.Play();
                 foreach(var collider in pColliders)
                 {
                     Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), collider);
