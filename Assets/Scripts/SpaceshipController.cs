@@ -31,10 +31,15 @@ public class SpaceshipController : MonoBehaviour
 
     public AudioSource shootAudio;
 
+    private Animator anime;
+
+    public GameManager manager;
+
     private void Awake()
     {
         pColliders = GetComponentsInParent<Collider2D>();
         bulletPool = GetComponent<ObjectPool>();
+        
         
     }
 
@@ -43,6 +48,7 @@ public class SpaceshipController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         bulletPool.Initialize(bulletPrefab, bulletPoolCount);
+        anime = GetComponent<Animator>();
     }
 
 
@@ -74,7 +80,6 @@ public class SpaceshipController : MonoBehaviour
 
     public void HandleShoot()
     {
-        Debug.Log("Shooting");
         Shoot();
     }
 
@@ -82,6 +87,7 @@ public class SpaceshipController : MonoBehaviour
     {
         if(canShoot == false)
         {
+            anime.Play("Idle");
             currentDelay -= Time.deltaTime;
             if(currentDelay <= 0)
             {
@@ -105,13 +111,24 @@ public class SpaceshipController : MonoBehaviour
                 bullet.transform.position = shooter.position;
                 bullet.transform.localRotation = shooter.rotation;
                 bullet.GetComponent<Bullet>().Initialize();
-                shootAudio.Play();
+
+                if (anime != null)
+                {
+                    anime.Play("Shoot");
+                }
+
+                if (shootAudio != null)
+                {
+                    shootAudio.Play();
+                }
+
                 foreach(var collider in pColliders)
                 {
                     Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), collider);
                 }
             }
         }
+        
     }
 
     private void FixedUpdate()
@@ -120,10 +137,28 @@ public class SpaceshipController : MonoBehaviour
         rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementVector.x * movementData.rotationSpeed * Time.fixedDeltaTime));
     }
 
+    public void Explode()
+    {
+        if(anime != null)
+        {
+            anime.Play("Explosion");
+        }
+
+    }
+
     public void rotate(Vector2 moveVector)
     {
-
+        
         rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -moveVector.x * movementData.rotationSpeed * Time.fixedDeltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (this.CompareTag("Player") && collision.gameObject.CompareTag("Earth"))
+        {
+            Debug.Log("PlayerCollidesEarth");
+            manager.Win();
+        }
     }
 }
 

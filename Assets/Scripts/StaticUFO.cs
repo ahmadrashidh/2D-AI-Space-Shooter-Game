@@ -49,7 +49,7 @@ public class StaticUFO : MonoBehaviour
                 canRotate = false;
                 Shoot();
                 Debug.DrawLine(transform.position, hit.point, Color.red);
-                lineofsight.SetPosition(1, hit.point);
+                lineofsight.SetPosition(0, hit.point);
                 lineofsight.startColor = Color.red;
             }
             

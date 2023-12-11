@@ -6,6 +6,6 @@ public class DestroyUtil : MonoBehaviour
 {
     public void DestroyHelper()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,0.10f);
     }
 }
