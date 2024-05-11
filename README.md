@@ -1,6 +1,6 @@
 # Space Shooter - Unity Game
 ### Overview
-Space Shooter is a thrilling 3D game developed as a project for the AI for Games program, part of the MSc AI ML curriculum. In this game, players control a spaceship navigating through space, facing off against AI-controlled enemy spaceships. The enemy ships utilize Finite State Machines (FSMs) and perception mechanisms to chase, follow, and shoot at the player's spaceship, providing an engaging and challenging gameplay experience.
+Space Shooter is a 2D game developed as a project for the `AI for Games` program, part of the `MSc AI ML` curriculum. In this game, players control a spaceship navigating through space, facing off against AI-controlled enemy spaceships. The enemy ships utilize Finite State Machines (FSMs) and Perception mechanisms to chase, follow, and shoot at the player's spaceship, providing an engaging and challenging gameplay experience.
 
 ### Features
 Intuitive spaceship controls for immersive gameplay.
